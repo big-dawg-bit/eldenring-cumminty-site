@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Nieuwe Boss - Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: 'Cinzel', serif;
+            min-height: 100vh;
+        }
+
+        input, textarea, select {
+            background: rgba(17, 24, 39, 0.5) !important;
+            border: 1px solid rgba(212, 175, 55, 0.3) !important;
+            color: rgb(229, 231, 235) !important;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: rgba(212, 175, 55, 0.6) !important;
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1) !important;
+        }
+
+        label {
+            color: rgb(212, 175, 55) !important;
+        }
+    </style>
+</head>
+<body>
+@include('layouts.navigation')
+
+<!-- Header -->
+<header class="bg-gray-900/80 backdrop-blur-md border-b border-yellow-600/30 shadow">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <h2 class="font-semibold text-xl text-yellow-500 leading-tight">
+            ➕ Nieuwe Boss
+        </h2>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="py-12">
+    <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+        <div style="background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3);" class="overflow-hidden shadow-sm rounded-lg">
+            <div class="p-8">
+
+                <form method="POST" action="{{ route('admin.bosses.store') }}" enctype="multipart/form-data">
+                    @csrf
+
+                    <!-- Name -->
+                    <div class="mb-6">
+                        <label for="name" class="block font-medium text-sm mb-2">
+                            Boss Naam <span class="text-red-500">*</span>
+                        </label>
+                        <input id="name"
+                               type="text"
+                               name="name"
+                               value="{{ old('name') }}"
+                               required
+                               placeholder="bijv. Margit, the Fell Omen"
+                               class="mt-1 block w-full rounded-md shadow-sm py-3 px-4">
+                        @error('name')
+                        <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Title -->
+                    <div class="mb-6">
+                        <label for="title" class="block font-medium text-sm mb-2">
+                            Titel / Bijnaam
+                        </label>
+                        <input id="title"
+                               type="text"
+                               name="title"
+                               value="{{ old('title') }}"
+                               placeholder="bijv. Starscourge Radahn"
+                               class="mt-1 block w-full rounded-md shadow-sm py-3 px-4">
+                        @error('title')
+                        <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Location -->
+                    <div class="mb-6">
+                        <label for="location" class="block font-medium text-sm mb-2">
+                            Locatie
+                        </label>
+                        <input id="location"
+                               type="text"
+                               name="location"
+                               value="{{ old('location') }}"
+                               placeholder="bijv. Stormveil Castle"
+                               class="mt-1 block w-full rounded-md shadow-sm py-3 px-4">
+                        @error('location')
+                        <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Difficulty & Order Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <!-- Difficulty -->
+                        <div>
+                            <label for="difficulty" class="block font-medium text-sm mb-2">
+                                Moeilijkheid <span class="text-red-500">*</span>
+                            </label>
+                            <select id="difficulty"
+                                    name="difficulty"
+                                    required
+                                    class="mt-1 block w-full rounded-md shadow-sm py-3 px-4">
+                                <option value="1" {{ old('difficulty') == 1 ? 'selected' : '' }}>⭐ Zeer Makkelijk</option>
+                                <option value="2" {{ old('difficulty') == 2 ? 'selected' : '' }}>⭐⭐ Makkelijk</option>
+                                <option value="3" {{ old('difficulty', 3) == 3 ? 'selected' : '' }}>⭐⭐⭐ Gemiddeld</option>
+                                <option value="4" {{ old('difficulty') == 4 ? 'selected' : '' }}>⭐⭐⭐⭐ Moeilijk</option>
+                                <option value="5" {{ old('difficulty') == 5 ? 'selected' : '' }}>⭐⭐⭐⭐⭐ Zeer Moeilijk</option>
+                            </select>
+                            @error('difficulty')
+                            <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Health -->
+                        <div>
+                            <label for="health" class="block font-medium text-sm mb-2">
+                                Health (HP)
+                            </label>
+                            <input id="health"
+                                   type="number"
+                                   name="health"
+                                   value="{{ old('health') }}"
+                                   placeholder="bijv. 10500"
+                                   class="mt-1 block w-full rounded-md shadow-sm py-3 px-4">
+                            @error('health')
+                            <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Order -->
+                        <div>
+                            <label for="order" class="block font-medium text-sm mb-2">
+                                Volgorde <span class="text-red-500">*</span>
+                            </label>
+                            <input id="order"
+                                   type="number"
+                                   name="order"
+                                   value="{{ old('order', 0) }}"
+                                   min="0"
+                                   required
+                                   class="mt-1 block w-full rounded-md shadow-sm py-3 px-4">
+                            <p class="mt-2 text-sm text-gray-400">0 = eerste</p>
+                            @error('order')
+                            <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <!-- Drops -->
+                    <div class="mb-6">
+                        <label for="drops" class="block font-medium text-sm mb-2">
+                            Drops / Rewards
+                        </label>
+                        <input id="drops"
+                               type="text"
+                               name="drops"
+                               value="{{ old('drops') }}"
+                               placeholder="bijv. Remembrance of the Grafted"
+                               class="mt-1 block w-full rounded-md shadow-sm py-3 px-4">
+                        @error('drops')
+                        <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Image -->
+                    <div class="mb-6">
+                        <label for="image" class="block font-medium text-sm mb-2">Afbeelding</label>
+                        <input id="image"
+                               type="file"
+                               name="image"
+                               accept="image/*"
+                               class="mt-1 block w-full text-sm text-gray-300
+                                          file:mr-4 file:py-3 file:px-6
+                                          file:rounded-lg file:border-0
+                                          file:text-sm file:font-semibold
+                                          file:bg-yellow-600 file:text-gray-900
+                                          hover:file:bg-yellow-500 file:cursor-pointer">
+                        <p class="mt-2 text-sm text-gray-400">JPG, PNG, GIF (Max 2MB)</p>
+                        @error('image')
+                        <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-6">
+                        <label for="description" class="block font-medium text-sm mb-2">
+                            Beschrijving <span class="text-red-500">*</span>
+                        </label>
+                        <textarea id="description"
+                                  name="description"
+                                  rows="8"
+                                  required
+                                  placeholder="Vertel over deze boss, strategie tips, achtergrondverhaal..."
+                                  class="mt-1 block w-full rounded-md shadow-sm py-3 px-4">{{ old('description') }}</textarea>
+                        @error('description')
+                        <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="flex items-center justify-between mt-8 pt-6 border-t border-yellow-600/30">
+                        <a href="{{ route('admin.bosses.index') }}"
+                           class="text-gray-400 hover:text-yellow-500 transition font-semibold">
+                            ← Annuleren
+                        </a>
+                        <button type="submit"
+                                class="inline-flex items-center px-8 py-4 bg-yellow-600 text-gray-900 rounded-lg font-bold text-lg hover:bg-yellow-500 transition shadow-lg">
+                            💾 Opslaan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
