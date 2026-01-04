@@ -24,7 +24,6 @@ class CommentController extends Controller
 
     public function destroy(Comment $comment)
     {
-        // Check if user is admin or comment owner
         if (auth()->user()->isAdmin() || auth()->id() === $comment->user_id) {
             $comment->delete();
             return back()->with('success', 'Comment verwijderd!');

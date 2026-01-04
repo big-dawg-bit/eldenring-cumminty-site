@@ -32,8 +32,6 @@ class ContactController extends Controller
 
         // Get the first admin user
         $admin = User::where('is_admin', true)->first();
-
-        // Only send email if an admin exists
         if ($admin) {
             Mail::send('emails.contact', [
                 'name' => $request->name,

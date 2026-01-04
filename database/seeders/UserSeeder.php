@@ -10,7 +10,7 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        // Create the REQUIRED admin user for the teacher (only if doesn't exist)
+
         User::firstOrCreate(
             ['email' => 'admin@ehb.be'],
             [
@@ -20,8 +20,6 @@ class UserSeeder extends Seeder
                 'is_admin' => true,
             ]
         );
-
-        // Create test users (only if they don't exist)
         User::firstOrCreate(
             ['email' => 'test@test.com'],
             [
@@ -31,7 +29,6 @@ class UserSeeder extends Seeder
                 'is_admin' => false,
             ]
         );
-
         User::firstOrCreate(
             ['email' => 'john@test.com'],
             [

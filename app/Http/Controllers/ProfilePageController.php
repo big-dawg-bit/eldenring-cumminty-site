@@ -46,15 +46,11 @@ class ProfilePageController extends Controller
             'birthday' => $request->birthday,
             'about' => $request->about,
         ];
-
-        // Handle profile photo upload
         if ($request->hasFile('profile_photo')) {
             // Delete old photo if exists
             if ($user->profile_photo) {
                 Storage::disk('public')->delete($user->profile_photo);
             }
-
-            // Store new photo
             $path = $request->file('profile_photo')->store('profile_photos', 'public');
             $data['profile_photo'] = $path;
         }

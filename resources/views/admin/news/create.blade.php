@@ -35,7 +35,6 @@
 <body>
 @include('layouts.navigation')
 
-<!-- Header -->
 <header class="bg-gray-900/80 backdrop-blur-md border-b border-yellow-600/30 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <h2 class="font-semibold text-xl text-yellow-500 leading-tight">
@@ -44,7 +43,6 @@
     </div>
 </header>
 
-<!-- Main Content -->
 <div class="py-12">
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
         <div style="background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3);" class="overflow-hidden shadow-sm rounded-lg">
@@ -53,7 +51,6 @@
                 <form method="POST" action="{{ route('admin.news.store') }}" enctype="multipart/form-data">
                     @csrf
 
-                    <!-- Title -->
                     <div class="mb-6">
                         <label for="title" class="block font-medium text-sm mb-2">
                             Titel <span class="text-red-500">*</span>
@@ -69,7 +66,6 @@
                         @enderror
                     </div>
 
-                    <!-- Publication Date -->
                     <div class="mb-6">
                         <label for="publication_date" class="block font-medium text-sm mb-2">
                             Publicatiedatum <span class="text-red-500">*</span>
@@ -85,7 +81,6 @@
                         @enderror
                     </div>
 
-                    <!-- Image -->
                     <div class="mb-6">
                         <label for="image" class="block font-medium text-sm mb-2">Afbeelding</label>
                         <input id="image"
@@ -104,7 +99,6 @@
                         @enderror
                     </div>
 
-                    <!-- Content -->
                     <div class="mb-6">
                         <label for="content" class="block font-medium text-sm mb-2">
                             Content <span class="text-red-500">*</span>
@@ -119,7 +113,6 @@
                         @enderror
                     </div>
 
-                    <!-- Buttons -->
                     <div class="flex items-center justify-between mt-8 pt-6 border-t border-yellow-600/30">
                         <a href="{{ route('admin.news.index') }}"
                            class="text-gray-400 hover:text-yellow-500 transition font-semibold">

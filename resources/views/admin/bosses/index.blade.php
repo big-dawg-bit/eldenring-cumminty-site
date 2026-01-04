@@ -24,7 +24,6 @@
 <body>
 @include('layouts.navigation')
 
-<!-- Header -->
 <header class="bg-gray-900/80 backdrop-blur-md border-b border-yellow-600/30 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <h2 class="font-semibold text-xl text-yellow-500 leading-tight">
@@ -37,7 +36,6 @@
     </div>
 </header>
 
-<!-- Main Content -->
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div style="background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3);" class="overflow-hidden shadow-sm rounded-lg">
@@ -139,7 +137,6 @@
                         </table>
                     </div>
 
-                    <!-- Pagination -->
                     <div class="mt-6">
                         {{ $bosses->links() }}
                     </div>

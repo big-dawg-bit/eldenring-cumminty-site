@@ -19,7 +19,6 @@
 <body>
 @include('layouts.navigation')
 
-<!-- Header -->
 <header class="bg-gray-900/80 backdrop-blur-md border-b border-yellow-600/30 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <h2 class="font-semibold text-xl text-yellow-500 leading-tight">
@@ -28,10 +27,8 @@
     </div>
 </header>
 
-<!-- Main Content -->
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <!-- Welcome Message -->
         <div class="bg-gray-800/50 backdrop-blur-sm border border-yellow-600/30 overflow-hidden shadow-sm rounded-lg mb-6">
             <div class="p-6">
                 <h3 class="text-3xl font-bold text-yellow-500 mb-2">
@@ -47,10 +44,7 @@
                 @endif
             </div>
         </div>
-
-        <!-- Quick Stats Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-            <!-- News Card -->
             <a href="{{ route('news.index') }}" class="bg-gray-800/50 backdrop-blur-sm border border-yellow-600/30 rounded-lg p-6 hover:transform hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-600/20 transition-all duration-300">
                 <div class="flex items-center justify-between">
                     <div>
@@ -61,7 +55,6 @@
                 </div>
             </a>
 
-            <!-- Bosses Card -->
             <a href="{{ route('bosses.index') }}" class="bg-gray-800/50 backdrop-blur-sm border border-yellow-600/30 rounded-lg p-6 hover:transform hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-600/20 transition-all duration-300">
                 <div class="flex items-center justify-between">
                     <div>
@@ -72,7 +65,6 @@
                 </div>
             </a>
 
-            <!-- FAQ Card -->
             <a href="{{ route('faq.index') }}" class="bg-gray-800/50 backdrop-blur-sm border border-yellow-600/30 rounded-lg p-6 hover:transform hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-600/20 transition-all duration-300">
                 <div class="flex items-center justify-between">
                     <div>
@@ -83,7 +75,6 @@
                 </div>
             </a>
 
-            <!-- Community Card -->
             <a href="{{ route('profile.show', Auth::user()) }}" class="bg-gray-800/50 backdrop-blur-sm border border-yellow-600/30 rounded-lg p-6 hover:transform hover:-translate-y-2 hover:shadow-lg hover:shadow-yellow-600/20 transition-all duration-300">
                 <div class="flex items-center justify-between">
                     <div>
@@ -95,7 +86,6 @@
             </a>
         </div>
 
-        <!-- Quick Actions -->
         <div class="bg-gray-800/50 backdrop-blur-sm border border-yellow-600/30 overflow-hidden shadow-sm rounded-lg mb-6">
             <div class="p-6">
                 <h4 class="text-xl font-bold text-yellow-500 mb-4">Quick Actions</h4>
@@ -124,7 +114,6 @@
         </div>
 
         @if(Auth::user()->isAdmin())
-            <!-- Admin Quick Actions -->
             <div class="bg-gray-800/50 backdrop-blur-sm border border-yellow-600/30 overflow-hidden shadow-sm rounded-lg">
                 <div class="p-6">
                     <h4 class="text-xl font-bold text-yellow-500 mb-4">Admin Actions</h4>

@@ -39,7 +39,6 @@
     @include('layouts.guest-navigation')
 @endauth
 
-<!-- Header -->
 <header class="bg-gray-900/80 backdrop-blur-md border-b border-yellow-600/30 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <h2 class="font-semibold text-xl text-yellow-500 leading-tight">
@@ -48,13 +47,11 @@
     </div>
 </header>
 
-<!-- Main Content -->
 <div class="py-12">
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
         <div style="background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3);" class="overflow-hidden shadow-sm rounded-lg">
             <div class="p-8">
 
-                <!-- Show all validation errors -->
                 @if ($errors->any())
                     <div class="mb-6 bg-red-900/50 border border-red-500 text-red-300 px-4 py-3 rounded">
                         <p class="font-bold mb-2">❌ Er zijn fouten opgetreden:</p>
@@ -66,7 +63,6 @@
                     </div>
                 @endif
 
-                <!-- Check if categories exist -->
                 @if($categories->isEmpty())
                     <div class="mb-6 bg-yellow-900/50 border border-yellow-500 text-yellow-300 px-4 py-3 rounded">
                         <p class="font-bold mb-2">⚠️ Geen categorieën gevonden!</p>
@@ -80,7 +76,6 @@
                 <form method="POST" action="{{ route('admin.faqs.store') }}">
                     @csrf
 
-                    <!-- Category -->
                     <div class="mb-6">
                         <label for="faq_category_id" class="block font-medium text-sm mb-2">
                             Categorie <span class="text-red-500">*</span>
@@ -101,7 +96,6 @@
                         @enderror
                     </div>
 
-                    <!-- Question -->
                     <div class="mb-6">
                         <label for="question" class="block font-medium text-sm mb-2">
                             Vraag <span class="text-red-500">*</span>
@@ -118,7 +112,6 @@
                         @enderror
                     </div>
 
-                    <!-- Answer -->
                     <div class="mb-6">
                         <label for="answer" class="block font-medium text-sm mb-2">
                             Antwoord <span class="text-red-500">*</span>
@@ -134,7 +127,6 @@
                         @enderror
                     </div>
 
-                    <!-- Buttons -->
                     <div class="flex items-center justify-between mt-8 pt-6 border-t border-yellow-600/30">
                         <a href="{{ route('admin.faqs.index') }}"
                            class="text-gray-400 hover:text-yellow-500 transition font-semibold">

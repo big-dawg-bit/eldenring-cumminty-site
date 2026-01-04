@@ -12,20 +12,16 @@ use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
 {
-    // Show all users
     public function index(): View
     {
         $users = User::orderBy('created_at', 'desc')->paginate(15);
         return view('admin.users.index', compact('users'));
     }
-
-    // Show form to create new user
     public function create(): View
     {
         return view('admin.users.create');
     }
 
-    // Store new user (admin creates manually)
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -46,13 +42,11 @@ class UserController extends Controller
             ->with('success', 'Gebruiker succesvol aangemaakt!');
     }
 
-    // Show form to edit user
     public function edit(User $user): View
     {
         return view('admin.users.edit', compact('user'));
     }
 
-    // Update user (mainly for toggling admin status)
     public function update(Request $request, User $user): RedirectResponse
     {
         $request->validate([
@@ -62,7 +56,6 @@ class UserController extends Controller
             'is_admin' => ['nullable', 'boolean'],
         ]);
 
-        // Prevent admin from removing their own admin rights
         if ($user->id === auth()->id() && !$request->boolean('is_admin')) {
             return back()->with('error', 'Je kunt je eigen admin rechten niet verwijderen!');
         }
@@ -73,7 +66,6 @@ class UserController extends Controller
             'is_admin' => $request->boolean('is_admin'),
         ];
 
-        // Only update password if provided
         if ($request->filled('password')) {
             $userData['password'] = Hash::make($request->password);
         }
@@ -84,7 +76,6 @@ class UserController extends Controller
             ->with('success', 'Gebruiker succesvol bijgewerkt!');
     }
 
-    // Delete user
     public function destroy(User $user): RedirectResponse
     {
         // Prevent admin from deleting themselves

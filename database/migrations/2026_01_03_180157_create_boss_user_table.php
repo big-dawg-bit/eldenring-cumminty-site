@@ -13,8 +13,6 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('boss_id')->constrained()->onDelete('cascade');
             $table->timestamps();
-
-            // Prevent duplicate favorites
             $table->unique(['user_id', 'boss_id']);
         });
     }

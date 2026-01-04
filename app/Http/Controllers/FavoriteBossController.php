@@ -12,11 +12,9 @@ class FavoriteBossController extends Controller
         $user = auth()->user();
 
         if ($user->favoriteBosses()->where('boss_id', $boss->id)->exists()) {
-            // Remove from favorites
             $user->favoriteBosses()->detach($boss->id);
             return back()->with('success', 'Boss verwijderd van favorieten!');
         } else {
-            // Add to favorites
             $user->favoriteBosses()->attach($boss->id);
             return back()->with('success', 'Boss toegevoegd aan favorieten!');
         }

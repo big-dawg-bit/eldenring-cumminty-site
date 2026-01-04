@@ -11,27 +11,16 @@ use Illuminate\Http\RedirectResponse;
 
 class FaqAdminController extends Controller
 {
-    /**
-     * Display a listing of FAQs
-     */
     public function index(): View
     {
         $faqs = Faq::with('category')->orderBy('order')->paginate(20);
         return view('admin.faqs.index', compact('faqs'));
     }
-
-    /**
-     * Show the form for creating a new FAQ
-     */
     public function create(): View
     {
         $categories = FaqCategory::orderBy('order')->get();
         return view('admin.faqs.create', compact('categories'));
     }
-
-    /**
-     * Store a newly created FAQ
-     */
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -40,26 +29,18 @@ class FaqAdminController extends Controller
             'answer' => ['required', 'string'],
         ]);
 
-        $validated['order'] = 0; // Always set to 0 for new FAQs
+        $validated['order'] = 0;
 
         Faq::create($validated);
 
         return redirect()->route('admin.faqs.index')
             ->with('success', 'FAQ succesvol toegevoegd!');
     }
-
-    /**
-     * Show the form for editing a FAQ
-     */
     public function edit(Faq $faq): View
     {
         $categories = FaqCategory::orderBy('order')->get();
         return view('admin.faqs.edit', compact('faq', 'categories'));
     }
-
-    /**
-     * Update the specified FAQ
-     */
     public function update(Request $request, Faq $faq): RedirectResponse
     {
         $request->validate([
@@ -74,10 +55,6 @@ class FaqAdminController extends Controller
         return redirect()->route('admin.faqs.index')
             ->with('success', 'FAQ succesvol bijgewerkt!');
     }
-
-    /**
-     * Remove the specified FAQ
-     */
     public function destroy(Faq $faq): RedirectResponse
     {
         $faq->delete();

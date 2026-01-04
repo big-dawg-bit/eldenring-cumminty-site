@@ -34,8 +34,6 @@
 </head>
 <body>
 @include('layouts.navigation')
-
-<!-- Header -->
 <header class="bg-gray-900/80 backdrop-blur-md border-b border-yellow-600/30 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <h2 class="font-semibold text-xl text-yellow-500 leading-tight">
@@ -43,17 +41,12 @@
         </h2>
     </div>
 </header>
-
-<!-- Main Content -->
 <div class="py-12">
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
         <div style="background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3);" class="overflow-hidden shadow-sm rounded-lg">
             <div class="p-8">
-
                 <form method="POST" action="{{ route('admin.bosses.store') }}" enctype="multipart/form-data">
                     @csrf
-
-                    <!-- Name -->
                     <div class="mb-6">
                         <label for="name" class="block font-medium text-sm mb-2">
                             Boss Naam <span class="text-red-500">*</span>
@@ -70,7 +63,7 @@
                         @enderror
                     </div>
 
-                    <!-- Title -->
+
                     <div class="mb-6">
                         <label for="title" class="block font-medium text-sm mb-2">
                             Titel / Bijnaam
@@ -86,7 +79,7 @@
                         @enderror
                     </div>
 
-                    <!-- Location -->
+
                     <div class="mb-6">
                         <label for="location" class="block font-medium text-sm mb-2">
                             Locatie
@@ -102,9 +95,9 @@
                         @enderror
                     </div>
 
-                    <!-- Difficulty & Order Grid -->
+
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                        <!-- Difficulty -->
+
                         <div>
                             <label for="difficulty" class="block font-medium text-sm mb-2">
                                 Moeilijkheid <span class="text-red-500">*</span>
@@ -124,7 +117,7 @@
                             @enderror
                         </div>
 
-                        <!-- Health -->
+
                         <div>
                             <label for="health" class="block font-medium text-sm mb-2">
                                 Health (HP)
@@ -140,7 +133,7 @@
                             @enderror
                         </div>
 
-                        <!-- Order -->
+
                         <div>
                             <label for="order" class="block font-medium text-sm mb-2">
                                 Volgorde <span class="text-red-500">*</span>
@@ -159,7 +152,7 @@
                         </div>
                     </div>
 
-                    <!-- Drops -->
+
                     <div class="mb-6">
                         <label for="drops" class="block font-medium text-sm mb-2">
                             Drops / Rewards
@@ -175,7 +168,7 @@
                         @enderror
                     </div>
 
-                    <!-- Image -->
+
                     <div class="mb-6">
                         <label for="image" class="block font-medium text-sm mb-2">Afbeelding</label>
                         <input id="image"
@@ -194,7 +187,7 @@
                         @enderror
                     </div>
 
-                    <!-- Description -->
+
                     <div class="mb-6">
                         <label for="description" class="block font-medium text-sm mb-2">
                             Beschrijving <span class="text-red-500">*</span>
@@ -210,7 +203,7 @@
                         @enderror
                     </div>
 
-                    <!-- Buttons -->
+
                     <div class="flex items-center justify-between mt-8 pt-6 border-t border-yellow-600/30">
                         <a href="{{ route('admin.bosses.index') }}"
                            class="text-gray-400 hover:text-yellow-500 transition font-semibold">

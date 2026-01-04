@@ -23,7 +23,6 @@
     @include('layouts.guest-navigation')
 @endauth
 
-<!-- Header -->
 <header class="bg-gray-900/80 backdrop-blur-md border-b border-yellow-600/30 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <h2 class="font-semibold text-xl text-yellow-500 leading-tight">
@@ -32,7 +31,6 @@
     </div>
 </header>
 
-<!-- Main Content -->
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div style="background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3);" class="overflow-hidden shadow-sm rounded-lg">
@@ -62,18 +60,15 @@
                             @if($category->faqs->isEmpty())
                                 <p class="text-gray-500 mb-6 ml-12">Geen vragen in deze categorie.</p>
                             @else
-                                <!-- FAQ Items -->
                                 <div class="space-y-4 ml-12">
                                     @foreach($category->faqs as $faq)
                                         <div class="bg-gray-800/50 border border-yellow-600/30 rounded-lg p-6">
-                                            <!-- Question -->
                                             <div class="flex items-start mb-3">
                                                 <span class="text-yellow-500 font-bold text-xl mr-3 mt-1">Q:</span>
                                                 <h4 class="font-semibold text-lg text-yellow-400 flex-1">
                                                     {{ $faq->question }}
                                                 </h4>
                                             </div>
-                                            <!-- Answer -->
                                             <div class="flex items-start">
                                                 <span class="text-gray-500 font-bold text-xl mr-3 mt-1">A:</span>
                                                 <p class="text-gray-300 whitespace-pre-line flex-1">
@@ -90,7 +85,6 @@
             </div>
         </div>
 
-        <!-- Help Section -->
         @if($categories->isNotEmpty())
             <div style="background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3);" class="overflow-hidden shadow-sm rounded-lg mt-6">
                 <div class="p-6">

@@ -11,26 +11,17 @@ use Illuminate\Http\RedirectResponse;
 
 class NewsController extends Controller
 {
-    /**
-     * Display a listing of news items for admin
-     */
     public function index(): View
     {
         $news = News::orderBy('publication_date', 'desc')->paginate(15);
         return view('admin.news.index', compact('news'));
     }
 
-    /**
-     * Show the form for creating a new news item
-     */
     public function create(): View
     {
         return view('admin.news.create');
     }
 
-    /**
-     * Store a newly created news item
-     */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -59,17 +50,11 @@ class NewsController extends Controller
             ->with('success', 'Nieuws succesvol toegevoegd!');
     }
 
-    /**
-     * Show the form for editing a news item
-     */
     public function edit(News $news): View
     {
         return view('admin.news.edit', compact('news'));
     }
 
-    /**
-     * Update the specified news item
-     */
     public function update(Request $request, News $news): RedirectResponse
     {
         $request->validate([
@@ -102,9 +87,6 @@ class NewsController extends Controller
             ->with('success', 'Nieuws succesvol bijgewerkt!');
     }
 
-    /**
-     * Remove the specified news item
-     */
     public function destroy(News $news): RedirectResponse
     {
         // Delete image if exists

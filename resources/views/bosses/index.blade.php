@@ -32,7 +32,7 @@
     @include('layouts.guest-navigation')
 @endauth
 
-<!-- Header -->
+
 <header class="bg-gray-900/80 backdrop-blur-md border-b border-yellow-600/30 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <h2 class="font-semibold text-xl text-yellow-500 leading-tight">
@@ -41,11 +41,9 @@
     </div>
 </header>
 
-<!-- Main Content -->
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-        <!-- Intro Text -->
         <div style="background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3);" class="overflow-hidden shadow-sm rounded-lg mb-8">
             <div class="p-6 text-center">
                 <h3 class="text-2xl font-bold text-yellow-500 mb-3">Face the Legends of the Lands Between</h3>
@@ -55,7 +53,6 @@
             </div>
         </div>
 
-        <!-- Bosses Grid -->
         @if($bosses->isEmpty())
             <div style="background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3);" class="overflow-hidden shadow-sm rounded-lg">
                 <div class="p-12 text-center">
@@ -89,7 +86,6 @@
                                 <p class="text-gray-400 text-sm mb-3 italic">"{{ $boss->title }}"</p>
                             @endif
 
-                            <!-- Difficulty Badge -->
                             <div class="mb-3">
                                 @if($boss->difficulty == 1)
                                     <span class="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-green-900/50 text-green-400 border border-green-500">

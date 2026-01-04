@@ -35,7 +35,6 @@
 <body>
 @include('layouts.navigation')
 
-<!-- Header -->
 <header class="bg-gray-900/80 backdrop-blur-md border-b border-yellow-600/30 shadow">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <h2 class="font-semibold text-xl text-yellow-500 leading-tight">
@@ -44,7 +43,6 @@
     </div>
 </header>
 
-<!-- Main Content -->
 <div class="py-12">
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
         <div style="background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3);" class="overflow-hidden shadow-sm rounded-lg">
@@ -54,7 +52,6 @@
                     @csrf
                     @method('PATCH')
 
-                    <!-- Name -->
                     <div class="mb-6">
                         <label for="name" class="block font-medium text-sm mb-2">
                             Naam <span class="text-red-500">*</span>
@@ -70,7 +67,6 @@
                         @enderror
                     </div>
 
-                    <!-- Email -->
                     <div class="mb-6">
                         <label for="email" class="block font-medium text-sm mb-2">
                             Email <span class="text-red-500">*</span>
@@ -86,7 +82,6 @@
                         @enderror
                     </div>
 
-                    <!-- Password (Optional) -->
                     <div class="mb-6">
                         <label for="password" class="block font-medium text-sm mb-2">
                             Nieuw Wachtwoord (optioneel)
@@ -101,7 +96,6 @@
                         @enderror
                     </div>
 
-                    <!-- Password Confirmation -->
                     <div class="mb-6">
                         <label for="password_confirmation" class="block font-medium text-sm mb-2">
                             Bevestig Nieuw Wachtwoord
@@ -112,7 +106,6 @@
                                class="mt-1 block w-full rounded-md shadow-sm py-3 px-4">
                     </div>
 
-                    <!-- Is Admin Checkbox -->
                     <div class="mb-6 bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-4">
                         <label class="flex items-center">
                             <input type="checkbox"
@@ -131,14 +124,12 @@
                         @endif
                     </div>
 
-                    <!-- User Info -->
                     <div class="mb-6 bg-gray-800/30 border border-yellow-600/20 rounded-lg p-4">
                         <p class="text-sm text-gray-400">
                             <span class="text-yellow-500 font-semibold">Account aangemaakt:</span> {{ $user->created_at->format('d-m-Y H:i') }}
                         </p>
                     </div>
 
-                    <!-- Buttons -->
                     <div class="flex items-center justify-between mt-8 pt-6 border-t border-yellow-600/30">
                         <a href="{{ route('admin.users.index') }}"
                            class="text-gray-400 hover:text-yellow-500 transition font-semibold">
