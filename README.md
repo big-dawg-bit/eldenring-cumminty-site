@@ -4,13 +4,13 @@ Een community website voor Elden Ring fans, gebouwd met Laravel 11 en Tailwind C
 
 ## Features
 
-- 📰 Nieuws artikelen met comments
-- 🐉 Boss database met moeilijkheidsgraad indicators
-- ❓ FAQ systeem met categorieën
-- ⭐ Favoriete bosses (Many-to-Many relatie)
-- 👤 User authenticatie met admin panel
-- 💬 Comment systeem op nieuws
-- 📧 Contact formulier
+-  Nieuws artikelen met comments
+-  Boss database met moeilijkheidsgraad indicators
+-  FAQ systeem met categorieën
+-  Favoriete bosses (Many-to-Many relatie)
+-  User authenticatie met admin panel
+-  Comment systeem op nieuws
+-  Contact formulier
 
 ## Technische Requirements
 
