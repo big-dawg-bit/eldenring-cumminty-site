@@ -127,9 +127,8 @@ Bezoek: `http://localhost:8000`
 - **Google Fonts (Cinzel):** https://fonts.google.com
 - **Boss afbeeldingen:** Elden Ring Wiki / FromSoftware
 - **Inspiratie design:** Elden Ring game UI
-- **extra's:** claude.ai
-- 
-
+- **extra's:** claude.ai/chatgpt
+- **laatste check:** https://gemini.google.com/share/b3981aaff0fb
 ## Ontwikkelaar
 
 - **Naam:** Arnaud Raspe
