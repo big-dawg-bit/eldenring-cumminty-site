@@ -4,13 +4,13 @@ Een community website voor Elden Ring fans, gebouwd met Laravel 11 en Tailwind C
 
 ## Features
 
-- 📰 Nieuws artikelen met comments
-- 🐉 Boss database met moeilijkheidsgraad indicators
-- ❓ FAQ systeem met categorieën
-- ⭐ Favoriete bosses (Many-to-Many relatie)
-- 👤 User authenticatie met admin panel
-- 💬 Comment systeem op nieuws
-- 📧 Contact formulier
+-  Nieuws artikelen met comments
+-  Boss database met moeilijkheidsgraad indicators
+-  FAQ systeem met categorieën
+-  Favoriete bosses (Many-to-Many relatie)
+-  User authenticatie met admin panel
+-  Comment systeem op nieuws
+-  Contact formulier
 
 ## Technische Requirements
 
@@ -127,9 +127,8 @@ Bezoek: `http://localhost:8000`
 - **Google Fonts (Cinzel):** https://fonts.google.com
 - **Boss afbeeldingen:** Elden Ring Wiki / FromSoftware
 - **Inspiratie design:** Elden Ring game UI
-- **extra's:** claude.ai
-- 
-
+- **extra's:** claude.ai/chatgpt
+- **laatste check:** https://gemini.google.com/share/b3981aaff0fb
 ## Ontwikkelaar
 
 - **Naam:** Arnaud Raspe
